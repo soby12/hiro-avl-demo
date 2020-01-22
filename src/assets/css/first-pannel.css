@@ -1,0 +1,467 @@
+.pannel-container{
+    width: 1730px;
+    height: 870px;
+    background: transparent;
+    float: left;
+    /* margin-top: 10px; */
+}
+
+/* *******left********* */
+.pannel-left{
+    width:670px;
+    height: 100%;
+    background: transparent;
+    float: left;
+    margin-left: 20px;
+
+
+}
+.pannel-left-top{
+    width: 100%;
+    height: 330px;
+    background: #34373A;
+    float: left;
+    margin-bottom: 10px;
+}
+.pannel-left-down{
+    width: 100%;
+    height: 530px;
+    background: #34373A;
+    float: left;
+}
+
+/* *********left-card********** */
+.pannel-card{
+    width: 45%;
+    height: 260px;
+    margin-top: 5px;
+    margin-left: 20px;
+    background: #232526;
+    float: left;
+}
+.pannel-card-header{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    float:left;
+}
+.pannel-card-header-txt{
+    text-align: center;
+    /* font: Bold 35px/47px Segoe UI; */
+    font-size: 25px;
+    letter-spacing: 0;
+    color: #A6A7A8;
+    margin-top: 10px;
+}
+.pannel-card-sub{
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background: transparent;
+    float:left;
+}
+.pannel-card-sub-txt{
+    text-align: center;
+    /* font: bold 20px/27px Segoe UI; */
+    font-size: 15px;
+    color: #A6A7A8;
+    font-size: 20px;
+    margin-top: 5px;
+}
+.pannel-card-number{
+    width: 100%;
+    height: 90px;
+    background: transparent;
+    margin-top: 10px;
+    float:left;
+}
+.pannel-card-number-L{
+    float: left;
+    margin-left: 85px;
+    
+}
+.pannel-card-number-L-res{
+    float: left;
+    margin-left: 115px;
+}
+.pannel-card-number-L-h{
+    text-align: left;
+    /* font: Bold 50px/67px Segoe UI; */
+    letter-spacing: 0;
+    color: #A6A7A8;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-right: 10px;
+    
+}
+.pannel-card-footer{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    margin-top: -20px;
+    float:left;
+}
+
+/* ********left-down******** */
+.pannel-left-down-con{
+    float: left;
+    width: 100%;
+    height: 40px;
+    background: transparent;
+}
+.pannel-left-table-heade{
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    margin-bottom: 10px;
+}
+.table-head-item{
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+.table-head-item-h{
+    /* padding-left: 15px; */
+    /* font: normal 17px/20px Segoe UI; */
+    text-align: center;
+    color: #A6A7A8;
+    padding-bottom: 10px;
+    margin-top: 13px;
+}
+.table-rows{
+    width: 98%;
+    margin: auto;
+    height: 60px;
+    background: #242628;
+    margin-bottom: 2px;
+}
+.tabel-cols{
+    width: 20%;
+    height: 100%;
+    background: transparent;
+    float: left;
+}
+.table-col-h{
+    text-align: right;
+    /* font: normal 15px/20px Segoe UI; */
+    color: #A6A7A8;
+    margin-right: 10px;
+    font-size: 13px;
+}
+.more-div{
+    width:10%
+}
+.last-div{
+    width: 30%;
+}
+.more{
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+
+/* ********right************ */
+.pannel-right{
+    width: 1000px;
+    height: 100%;
+    background: transparent;
+    float: left;
+    margin-left: 20px;
+    /* margin-top: 20px; */
+}
+.pannel-right-top{
+    width: 100%;
+    height: 520px;
+    background: #34373A;
+    float: left;
+    margin-bottom: 10px;
+
+}
+.pannel-right-con{
+    width:96%;
+    height: 88%;
+    margin: auto;
+    background: transparent;
+}
+.pannel-map{
+    width: 70%;
+    height: 100%;
+    background: royalblue;
+    float: left;
+}
+.data{
+    width: 30%;
+    height: 100%;
+    background: transparent;
+    float: left;
+}
+.data-first{
+    width: 100%;
+    height: 135px;
+    background: transparent;
+    float: left;
+}
+.data-first-h2{
+    text-align: right;
+    /* font: Bold 35px/47px Segoe UI; */
+    letter-spacing: 0;
+    color: #A6A7A8;
+    margin-bottom: 5px;
+}
+.data-first-h5{
+    text-align: right;
+    /* font:normal  18px/24px Segoe UI; */
+    letter-spacing: 0;
+    color: #A6A7A8;
+    margin-top: 5px;
+    font-size: 18px;
+}
+.data-second{
+    width: 100%;
+    height: 80px;
+    background: transparent;
+    float: left;
+    margin-top: 150px;
+}
+.data-sec-col{
+    width:80px;
+    height: 100%;
+    float: right;
+    background: transparent;
+    margin-right: 10px;
+}
+.data-sec-h2{
+    margin-top: -5px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 50px;
+    /* font:Bold 50px/67px Segoe UI; */
+    color: #E4500C
+}
+.data-sec-h5{
+    margin-top: 0px;
+    text-align: center;
+    
+
+}
+.data-third{
+    width: 100%;
+    height: 80px;
+    background:transparent;
+    float: left;
+}
+.data-ther-h2{
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /* font: Bold 50px/67px Segoe UI; */
+    color: #A6A7A8;
+    font-size: 40px;
+}
+.data-ther-h5{
+    text-align: center;
+    margin-top: 0px;
+    /* font: bold 18px/24px Segoe UI; */
+    letter-spacing: 0;
+    color: #A6A7A8;
+    font-size: 20px;
+}
+.data-ther-col{
+    width:80px;
+    height: 100%;
+    float: right;
+    background: transparent;
+    margin-right: 10px;
+}
+.pannel-right-down{
+    width: 100%;
+    height: 340px;
+    background: #34373A;
+    float: left;
+
+}
+
+
+
+
+
+/* ********headers********** */
+.pannel-header{
+    width: 100%;
+    height: 58px;
+    background:#242628 ;
+    float: left;
+}
+.pannel-header-content-1{
+    float:left;
+    background: transparent;
+    width: 30%;
+    height: 100%;
+}
+.pannel-header-content1-text{
+    text-align: left;
+    /* font: normal 20px/27px Segoe UI; */
+    letter-spacing: 0;
+    color: #A6A7A8;
+    margin-left: 10px;
+    margin-top: 15px;
+    font-size: 20px;
+}
+.pannel-header-content-2{
+    float: right;;
+    background: transparent;
+    width: 30%;
+    height: 100%;
+}
+.pannel-header-content2-text{
+    text-align: right;
+    /* font: normal 20px/27px Segoe UI; */
+    letter-spacing: 0;
+    color: #A6A7A8;
+    margin-right: 10px;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+
+
+@media  (max-width: 2045px){
+
+    .pannel-container{
+        width: 91.9%;
+        float: left;
+
+    }
+    .pannel-left{
+        /* width:670px; */
+        width: 40%;
+        height: 100%;
+        background: transparent;
+        float: left;
+        margin-left: 20px;
+        /* margin: auto; */
+    
+    
+    }
+    .pannel-right{
+        /* width: 1000px; */
+        width: 55%;
+        height: 100%;
+        background: transparent;
+        float: left;
+        margin-left: 20px;
+        /* margin-top: 20px; */
+    }
+    .pannel-card-header-txt{
+        text-align: center;
+        /* font: Bold 35px/47px Segoe UI; */
+        letter-spacing: 0;
+        color: #A6A7A8;
+        font-size: 25px;
+    }
+    .pannel-card-number-L-h{
+        text-align: left;
+        /* font: Bold 50px/67px Segoe UI; */
+        letter-spacing: 0;
+        color: #A6A7A8;
+        margin-top: -5px;
+        font-size: 30px;        
+    }
+    .pannel-card-number-L{
+        float: left;
+        margin-left: 30%;
+    }
+    .pannel-card-number-L-res{
+        float: left;
+        margin-left: 40%;
+    }
+    .data-first-h2{
+        text-align: right;
+        /* font: Bold 35px/47px Segoe UI; */
+        letter-spacing: 0;
+        color: #A6A7A8;
+        margin-bottom: 5px;
+        font-size: 25px;
+    }
+    .data-sec-h2{
+        font-size: 50px;
+    }
+    .data-sec-col{
+        width: 65px;
+    }
+    .data-ther-col{
+        width: 48px;
+        font-size: 25px;
+    }
+    .data-ther-h2{
+        font-size: 30px;
+    }
+
+}
+
+@media  (max-width: 1200px){
+    .pannel-container{
+        width: 98%;
+        float: left;
+        padding-right: 10px;
+        
+    }
+    .pannel-left{
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        float: left;
+        margin-right: 20px;
+        margin-left: 11px;
+        margin-bottom: 135px;
+        
+    }
+    .pannel-card{
+        width: 45%;
+        height: 365px;
+        margin-top: 5px;
+        margin-left: 20px;
+        background: #232526;
+        float: left;
+    }
+    .pannel-left-top{
+        width: 100%;
+        height: 450px;
+        background: #34373A;
+        float: left;
+        margin-bottom: 10px;
+    }
+    .pannel-right{
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        float: left;
+        margin-left: 11px;
+    }
+    .pannel-card-number-L{
+        float: left;
+        margin-left: 40%;
+    }
+    .pannel-card-number-L-res{
+        float: left;
+        margin-left: 43%;
+    }
+    .data-second{
+        margin-top: 130px;
+    }
+    .data-sec-h2{
+        font-size: 30px;
+    }
+    .data-sec-col{
+        width: 65px;
+    }
+    .data-ther-col{
+        width: 48px;
+        font-size: 25px;
+    }
+    .data-ther-h2{
+        font-size: 25px;
+    }
+}
+

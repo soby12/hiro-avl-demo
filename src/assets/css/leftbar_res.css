@@ -1,0 +1,31 @@
+.leftbar-res-container{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+.leftbar-res-page-container{
+    width: 32%;
+    height: 100%;
+    margin-left: 8px;
+    background: transparent;
+    float: left;
+}
+.leftbar-res-head{
+    width: 100%;
+    height: 80px;
+    background: transparent;
+    float: left;
+}
+.leftbar-res-head-txt{
+    /* font:normal 20px/27px Segoe UI;; */
+    color: #A6A7A8;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+.leftbar-res-body{
+    width: 100%;
+    height: 750px;
+    background: transparent;
+    float: left;
+}

@@ -1,0 +1,46 @@
+.downbar-container{
+    margin-top:-280px;
+    width:50%;
+    float:right;
+    height:280px;
+    z-index: 1000;
+    margin-left: 717px;
+    position: absolute;
+}
+.downbar-btn{
+    background:#121416;
+    height:20px;
+    width:50px;
+    /* z-index: 6; */
+    margin-left:525px;
+
+}
+.downbar-con{
+    width:100%;
+    float:right;
+    /* z-index: 6; */
+    background:#121416CF;
+}
+
+@media  (max-width: 2045px){
+    .downbar-container{
+        display: none;
+    }
+    .downbar-btn{
+        display: none;
+    }
+    .downbar-con{
+        display: none;
+    }
+}
+@media  (max-width: 1200px){
+    .downbar-container{
+        display: none;
+    }
+    .downbar-btn{
+        display: none;
+    }
+    .downbar-con{
+        display: none;
+    }
+}

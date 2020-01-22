@@ -1,0 +1,288 @@
+.main-nav{
+    background: transparent;
+    width: 1730px;
+    height: 135px;
+    float: left;
+}
+/* ***************/
+
+.nav-first{
+    width: 100%;
+    height: 63px;
+    background:transparent;
+
+}
+.first-nav-item-1{
+    float: left;
+    width: 150px;
+    height: 100%;
+    background: transparent;
+    border-right:solid 2px whitesmoke;
+}
+.first-nav-item-2{
+    float: right;
+    width: 100px;
+    height: 100%;
+    background: transparent;
+}
+.page-name{
+    /* font: normal Segoe UI; */
+    color: #A6A7A8;
+    font-size: 20px;
+}
+.sec-nav-2item-txt{
+    float:'right';
+    /* font: normal 20px/27px Segoe UI; */
+    color: #A6A7A8;
+    font-size:25px;
+    margin-top:15px;
+}
+
+/* ********************** */
+.nav-second{
+    width: 100%;
+    height: 63px;
+    background: transparent;
+    border-top: solid 2px white;
+    border-bottom: solid 2px white;
+    margin-bottom:5px ;    
+}
+.sec-nav-item-1{
+    width: 11%;
+    height: 100%;
+    background: transparent;
+    float: left;
+}
+.first-filter{
+    float:right;
+    color: #A6A7A8;
+    width:20px;
+    height:20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.sec-nav-1item-txt{
+    float:'left';
+    /* font: normal 20px/27px Segoe UI; */
+    color:#A6A7A8;
+    font-size:20px;
+    margin-top:15px;
+}
+.sec-nav-1item-txt-container{
+    float:'left';
+
+}
+.last-filter{
+    float:right;
+    color: #A6A7A8;
+    width:20px;
+    height:20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.sec-nav-item-2{
+    
+    width: 69%;
+    height: 100%;
+    background: transparent;
+    float: left;
+}
+.sec-nav-item-2-container{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+.sec-nav-item-2-inner{
+    width: 40%;
+    height: 100%;
+    background: transparent;
+    float: left;
+}
+.sec-nav-2-txt{
+    /* font: normal 20px/27px Segoe UI; */
+    color: #A6A7A8;
+    margin-top: 15px;
+}
+.sec-nav-item-3{
+    width: 20%;
+    height: 100%;
+    background: transparent;
+    float: left;
+}
+
+/* ********************** */
+.nav-side{
+    width: 100%;
+    height: 63px;
+    background: blue;
+    display: none;
+    
+}
+.nav-side-item{
+    width: 20%;
+    float: left;
+    margin: auto;
+}
+.nav-side-item-text{
+    margin-left: 55px;
+    /* font: normal 20px/27px Segoe UI; */
+    font-size: 20px;
+    color: #A6A7A8;
+}
+.nav-side-item-active{
+    background:#1B1D1F ;
+    width: 20%;
+    float: left;
+    margin: auto;
+}
+.nav-side-item-text-active{
+    color:#45A29E;
+    margin-left: 55px;
+    /* font: normal 20px/27px Segoe UI; */
+    font-size: 20px;
+}
+
+@media  (max-width: 2045px){
+    .nav-side{
+        width: 100%;
+        height: 63px;
+        background: #242628;
+        display: none;
+    }
+    .main-nav{
+        background: transparent;
+        width: 91.9%;
+        height: 135px;
+        float: left;
+    }
+    .sec-nav-item-1{
+        width: 20%;
+        height: 100%;
+        background: transparent;
+        float: left;
+    }
+    .sec-nav-item-2{
+    
+        width: 60%;
+        height: 100%;
+        background: transparent;
+        float: left;
+    }
+    .sec-nav-2-txt{
+        margin-top: 15px;
+    }
+    .sec-nav-item-2-inner{
+        width: 25%;
+        height: 100%;
+        background: transparent;
+        float: left;
+    }
+    .first-filter{
+        float:left;
+        color: #A6A7A8;
+        width:20px;
+        height:20px;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .sec-nav-1item-txt-container{
+        float:'left';
+        /* background: rebeccapurple; */
+    }
+    /* .sec-nav-1item-txt-container{
+        float:'right';
+    } */
+}
+
+@media  (max-width: 1200px){
+    .main-nav{
+        position: fixed;
+        background: #1B1D1F;
+        width: 100%;
+        height: 205px;
+        float: left;
+        margin-top: -10px;
+        /* height: 300px; */
+    }
+    .nav-first{
+        background: #1B1D1F;
+    }
+    .nav-second{
+        background: #1B1D1F;
+    }
+    .pannel-container{
+        width: 98%;
+        float: left;
+        padding-right: 10px;
+        margin-top: 205px;
+    }
+    .nav-side{
+        width: 100%;
+        height: 63px;
+        background: #242628;
+        display: block;
+        position: fixed;
+    }
+    .sec-nav-item-2-inner{
+        width: 36%;
+        height: 100%;
+        background: transparent;
+        float: left;
+    }
+    
+    
+    .first-filter{
+        float:right;
+        color: #A6A7A8;
+        width:20px;
+        height:20px;
+        margin-right: 10px;
+        margin-left:7px;
+        margin-top:20px;
+        
+        
+    }
+    .sec-nav-2-txt{
+        font-size: 17px;
+        margin-top: 15px;
+    }
+    .sec-nav-1item-txt{
+        float:'left';
+        /* font: normal 20px/27px Segoe UI; */
+        color:#A6A7A8;
+        font-size:14px;
+        margin-top:15px;
+    }
+    .last-filter{
+        float:right;
+        color: #A6A7A8;
+        width:20px;
+        height:20px;
+        margin-top: 20px;
+        margin-left: 6px;
+        margin-right: 0px;
+        
+    }
+    .nav-side-item-text{
+        font-size: 17px;
+        /* font: bold 17px/18px Segoe UI; */
+        margin-top: 25px;
+    }
+    .sec-nav-2item-txt{
+        float:'right';
+        /* font: normal 20px/27px Segoe UI; */
+        color: #A6A7A8;
+        font-size:16px;
+        margin-top:15px;
+    }
+    .nav-side-item-text-active{
+        color:#45A29E;
+        margin-left: 55px;
+        /* font: normal 20px/27px Segoe UI; */
+        font-size: 20px;
+        height: 24px;
+    }
+}

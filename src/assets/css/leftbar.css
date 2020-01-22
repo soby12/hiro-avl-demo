@@ -1,0 +1,107 @@
+.leftbar-container{
+    width: 430px;
+    height: 870px;
+    background: transparent;
+    display: block;
+    position: absolute;
+    margin-top: -870px;
+    z-index: 1000;
+
+}
+.leftbar-con{
+    float: left;
+    background: #121416CF;
+    display: block;
+
+    /* height: 100%;
+    width: 410px; */
+}
+.leftbar-btn{
+    float: left;
+    background: #121416;
+    width: 20px;
+    height: 50px;
+
+    margin-top: 90%;
+    /* display: block ;
+    border-bottom: 19px solid red;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    width: 10px;
+    transform:rotate( 90deg) */
+
+    /* width: 20px;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 20px solid red;
+    border-bottom: 10px solid transparent; */
+
+}
+
+.MuiTypography-body1{
+    color:white;
+}
+.MuiIconButton-label{
+    /* margin-bottom: 20px; */
+    margin-left: 20px;
+}
+.MuiSvgIcon-root{
+    /* margin-bottom: 20px; */
+
+    fill: white !important;
+}
+.MuiTypography-body1{
+    font-family: IRANSans !important;
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #45A29E; 
+    border-radius: 30px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: grey; 
+  }
+
+  .pointers{
+      cursor: pointer;
+  }
+
+@media  (max-width: 2045px){
+    .leftbar-container{
+        display: none;
+    }
+    .leftbar-con{
+        display: none;
+        
+    }
+    .leftbar-btn{
+        display: none;
+        
+    }
+}
+@media  (max-width: 1200px){
+    .leftbar-container{
+        display: none;
+    }
+    .leftbar-con{
+        display: none;
+        
+    }
+    .leftbar-btn{
+        display: none;
+        
+    }
+}
