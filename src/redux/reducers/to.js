@@ -1,5 +1,3 @@
-
-
 const To = (state='1',action)=>{
     switch(action.type){
         case "TO":{
@@ -10,7 +8,4 @@ const To = (state='1',action)=>{
         }
     }
 }
-
-
-
 export default To;

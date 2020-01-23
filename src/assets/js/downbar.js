@@ -1,17 +1,12 @@
 import React from "react";
 
 
-
-
-
 export default class Downbar extends React.Component{
     constructor(props){
         super(props);
         this.state={
             h:'0px',
             mt:'255px',
-
-
         };
     }
     downbar(){

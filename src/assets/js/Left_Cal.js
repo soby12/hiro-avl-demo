@@ -3,20 +3,16 @@ import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import DatePicker from "react-modern-calendar-datepicker";
 import moment from 'moment-jalaali';
 
-import {connect,useSelector , useDispatch} from "react-redux";
-import {/*getCarSum,getCarTrip,getCarId,*/getFrom,getTo,getDate,changeFlag} from '../../redux/actions/index';
+import {useSelector , useDispatch} from "react-redux";
+import {getFrom,getTo} from '../../redux/actions/index';
 
 
 const Cal = () => {
   const [selectedDayRange, setSelectedDayRange] = useState({
     from:"",
     to:""
-    // to: {day: 8, month: 10, year: 1398}
   });
 
-
-  // const selectedDayRange={from:'',to:''};
-  // const carid = useSelector(state => state.carId);
   const dispatch = useDispatch();
   const flag = useSelector(state => state.flag);
 
@@ -64,8 +60,6 @@ const Cal = () => {
     }
   }
   month();
-  // let per2=month(selectedDayRange.from.month);
-  // const apace=''
   
   const renderCustomInput = ({ ref }) => (
     <input
@@ -88,8 +82,6 @@ const Cal = () => {
     />
   )
 
-    
-  // }
   // console.log(selectedDayRange.from);
   // console.log(selectedDayRange.to);
   
@@ -105,18 +97,10 @@ const Cal = () => {
     let dateTT=yearT+'/'+monthT+'/'+dayT;
     const dateT=moment(dateTT, 'jYYYY/jM/jD').format('YYYY-M-D');
     const dateF=moment(dateFF, 'jYYYY/jM/jD').format('YYYY-M-D');
-    // console.log('aval inja********');
-    
-    // console.log(dateF,dateT);
     
     if(dateF !='Invalid date' && dateT !='Invalid date'){
-      // const dat = dateF+' '+dateT
       dispatch(getFrom(dateF))
-      dispatch(getTo(dateT))
-      // dispatch(changeFlag(false))
-
-      // console.log('dispactchch********');
-      
+      dispatch(getTo(dateT))      
     }
   }
   
@@ -126,7 +110,6 @@ const Cal = () => {
       value={selectedDayRange}
       onChange={setSelectedDayRange}
       renderInput={renderCustomInput}
-      //   inputPlaceholder="Select a day range"
       shouldHighlightWeekends
       locale="fa"
       />

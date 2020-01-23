@@ -1,6 +1,6 @@
 import React from 'react';
-import { faCog , faRedo , faFilter , faChevronDown} from '@fortawesome/free-solid-svg-icons';
-import { faUserCircle  , faSun} from '@fortawesome/free-regular-svg-icons';
+import { faCog , faRedo , faFilter/* , faChevronDown*/} from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const user=<FontAwesomeIcon icon={faUserCircle} style={{marginLeft:'18px',width:'30px',height:'30px',color:'#A6A7A8',marginTop:'15px'}}/>;
@@ -15,12 +15,8 @@ export default class NavBar extends React.Component{
         this.state={
             page:this.props.page
         }
-        console.log(this.state.page);
-        
+        console.log(this.state.page);        
     }
-
-
-
     render(){
         const page=this.state.page;
         return(
@@ -70,8 +66,6 @@ export default class NavBar extends React.Component{
                             <h4 className='sec-nav-2item-txt' style={{}}>تمام دستگاه ها</h4>
                         </div>
                     </div>
-
-
                 </div>
 {/* ******nav-side****** */}
                 <div className='nav-side'>
@@ -82,7 +76,6 @@ export default class NavBar extends React.Component{
                             </h3>
                         </a>
                     </div>
-
                     <div className='nav-side-item'>
                         <a href='http://localhost:3000/maps'>
                             <h3 className='nav-side-item-text'>
@@ -90,28 +83,22 @@ export default class NavBar extends React.Component{
                             </h3>
                         </a>
                     </div>
-
                     <div className='nav-side-item'>
                         <h3 className='nav-side-item-text'>
                             دستگاه ها
                         </h3>
                     </div>
-
                     <div className='nav-side-item'>
                         <h3 className='nav-side-item-text'>
                             عملیات
                         </h3>
                     </div>
-
                     <div className='nav-side-item'>
                         <h3 className='nav-side-item-text'>
                             نگه داری
                         </h3>
                     </div>
-
                 </div>
-
-
             </div>
         )
     }

@@ -1,7 +1,6 @@
 import React from 'react';
 import {faEllipsisH,faCheckCircle,faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import  PersianNumber  from 'react-persian';
 
 import SimpleExample from './API/LeafLet';
 
@@ -92,7 +91,7 @@ export default class Pannel extends React.Component{
                                     </h3>
                                 </div>
                                 <div className='pannel-card-number-R' style={{float:'left'}}>
-                                    <h4 style={{/*font: 'Bold 20px/27px Segoe UI',*/color:' #A6A7A8',marginTop:'45px'}}>
+                                    <h4 style={{color:' #A6A7A8',marginTop:'45px'}}>
                                         /{devices}
                                     </h4>
                                 </div>
@@ -120,13 +119,13 @@ export default class Pannel extends React.Component{
                                 </h4>
                             </div>
                             <div className='pannel-card-number'>
-                                <div className='pannel-card-number-L' style={{/*marginLeft:'60px'*/}}>
+                                <div className='pannel-card-number-L'>
                                     <h3 className='pannel-card-number-L-h'>
                                         17500
                                     </h3>
                                 </div>
                                 <div className='pannel-card-number-R' style={{float:'left'}}>
-                                    <h4 style={{/*font:' normal 20px/27px Segoe UI',*/color: '#A6A7A8',marginTop:'40px'}}>
+                                    <h4 style={{color: '#A6A7A8',marginTop:'40px'}}>
                                         لیتر
                                     </h4>
                                 </div>
@@ -378,25 +377,25 @@ export default class Pannel extends React.Component{
                                 </div>
                                 <div className='data-second'>
                                     <div className='data-sec-col'>
-                                        <h2 className='data-sec-h2' style={{}}>3</h2>
-                                        <h5 className='data-sec-h5' style={{/*font:'  18px/24px Segoe UI',*/color:' #A6A7A8'}}>حیاتی</h5>                    
+                                        <h2 className='data-sec-h2'>3</h2>
+                                        <h5 className='data-sec-h5' style={{color:' #A6A7A8'}}>حیاتی</h5>                    
                                     </div>
                                     <div className='data-sec-col'>
                                         <h2 className='data-sec-h2' style={{color:' #FFF700'}}>2</h2>
-                                        <h5 className='data-sec-h5' style={{/*font:'  18px/24px Segoe UI',*/color:' #A6A7A8'}}>اخطار ها</h5>
+                                        <h5 className='data-sec-h5' style={{color:' #A6A7A8'}}>اخطار ها</h5>
                                     </div>
                                 </div>
                                 <div className='data-third'>
                                     <div className='data-ther-col'>
-                                        <h2 className='data-ther-h2' style={{/*font: 'Bold 50px/67px Segoe UI',color: '#A6A7A8'*/}}>{devices}</h2>
+                                        <h2 className='data-ther-h2'>{devices}</h2>
                                         <h5 className='data-ther-h5'>کل</h5>
                                     </div>
                                     <div className='data-ther-col'>
-                                        <h2 className='data-ther-h2' style={{/*font: 'Bold 50px/67px Segoe UI',color: '#A6A7A8'*/}}>{actives}</h2>
-                                        <h5 className='data-ther-h5' style={{}}>آنلاین</h5>
+                                        <h2 className='data-ther-h2'>{actives}</h2>
+                                        <h5 className='data-ther-h5'>آنلاین</h5>
                                     </div>
                                     <div className='data-ther-col'>
-                                        <h2 className='data-ther-h2' style={{/*font: 'Bold 50px/67px Segoe UI',color: '#A6A7A8'*/}}>{deActives}</h2>
+                                        <h2 className='data-ther-h2'>{deActives}</h2>
                                         <h5 className='data-ther-h5'>افلاین</h5>
                                     </div>
                                 </div>

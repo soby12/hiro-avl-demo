@@ -3,15 +3,14 @@ import Select from 'react-select';
 import { Button, UncontrolledPopover, PopoverHeader, PopoverBody } from 'reactstrap';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import {faEllipsisV,faDownload, faTimes,faMinus , faPlus, faCheckSquare,faCircle} from "@fortawesome/free-solid-svg-icons";
-import {faSquare} from "@fortawesome/free-regular-svg-icons";
+import {faEllipsisV,faDownload, faTimes,faMinus, faCheckSquare,faCircle} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // import moment from 'moment';
 import moment from 'moment-jalaali';
 
 
-import { ClipLoader ,RingLoader,SquareLoader,BarLoader} from "react-spinners";
+import { /*ClipLoader ,RingLoader,SquareLoader,*/BarLoader} from "react-spinners";
 import { css } from "@emotion/core";
 
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
@@ -45,7 +44,7 @@ class Leftbar extends React.Component{
 
             AllDevices:[{name:'دستگاه ها',status:'online'}],
             options:[],
-            selectedOption:{/*value: 36, label: "هایس 05"*/},
+            selectedOption:{},
             reportT:'none',
             reportS:'none',
             checkedT:false,
@@ -164,19 +163,13 @@ class Leftbar extends React.Component{
             })
           
         }}
-    componentDidMount(){
-        console.log(this.props.devices);
-
-    }
-
-    sendData = (routees) => {
-        this.props.parentCallback(routees);
-   }
+//     sendData = (routees) => {
+//         this.props.parentCallback(routees);
+//    }
 
 
     routes(f,t){
         const id=this.props.carId;
-        console.log(id,f,t);
         const routes=[]
         this.setState({loadDis:'block'})
         fetch(`/api/reports/route?_dc=1578901966730&deviceId=${id}&from=${f}&to=${t}&page=1&start=0&limit=25`).then(response => {
@@ -184,13 +177,13 @@ class Leftbar extends React.Component{
                 response.json().then(datas => {
                     datas.map((data)=>{routes.push([data.latitude,data.longitude])})
                     this.setState({routees:routes,loadDis:'none'})
-                    this.sendData(routes)
+                    this.props.parentCallback(routes);
+                    // this.sendData(routes)
                 })
             }
 
             
         });
-        console.log(this.state.routees);
     }
 
     render(){
@@ -218,8 +211,8 @@ class Leftbar extends React.Component{
         console.log(Ts);
         
         return(
-            <div className='leftbar-container'>
-                <div className='leftbar-con' style={{height:con_h,width:con_w}}>
+                <div className='leftbar-container'>
+                    <div className='leftbar-con' style={{height:con_h,width:con_w}}>
                     
                         {/* **********head********* */}
                         <div className='sec-page-side-L-head' style={{display:btn_display}} >
@@ -312,63 +305,9 @@ class Leftbar extends React.Component{
                                                 </div>                      
                                             </div>
                                             }
-                                            }
-                                            )
+                                        })
                                     }
-                                    
-                                    {/* {
-                                        devices.map(device=><div>{device.id}</div>)
-                                    } */}
-                                    {/* <div className='first-page-item' >
-                                        <div className='first-page-item-cols' style={{}}>
-                                            <FontAwesomeIcon icon={faSquare} style={{ marginTop:'15px',height:'30px',width:'30px',marginLeft:'15px',color:'white'}}/>
-                                        </div>                      <div className='first-page-item-cols' style={{marginLeft:'20px'}}> 
-                                            <FontAwesomeIcon className='first-page-plus-icon' icon={faMinus} style={{width:'25px',height:'25px',marginTop:'15px', color:'white'}}/>
-                                        </div>                      <div className='first-page-item-cols-4'>
-                                            <h4>
-                                                دسته بندی نشده
-                                            </h4>
-                                        </div>                      <div className='first-page-item-cols-last' style={{}}>
-                                            <FontAwesomeIcon icon={faEllipsisV} style={{ color:'white'}}/>
-                                        </div>
-                                    </div>
-                                    <div className='first-page-item' >
-                                        <div className='first-page-item-cols' style={{}}>
-                                            <FontAwesomeIcon icon={faCheckSquare} style={{marginTop:'15px',height:'30px',width:'30px',marginLeft:'15px', color:'white'}}/>
-                                        </div>                      <div className='first-page-item-cols' style={{marginLeft:'20px'}}> 
-                                            <FontAwesomeIcon className='first-page-plus-icon' icon={faCircle} style={{ width:'10px',height:'10px',marginTop:'25px',    marginLeft: '10px',color:'#12F948'}}/>
-                                        </div>                      <div className='first-page-item-cols-4'>
-                                            <h4>دسته بندی نشده</h4>
-                                        </div>                      <div className='first-page-item-cols-last' style={{float:'right'}}>
-                                            <FontAwesomeIcon icon={faEllipsisV} style={{ color:'white'}}/>
-                                        </div>
-                                    </div>
-                                    <div className='first-page-item' >
-                                        <div className='first-page-item-cols' style={{}}>
-                                            <FontAwesomeIcon icon={faCheckSquare} style={{marginTop:'15px',height:'30px',width:'30px',marginLeft:'15px', color:'white'}}/>
-                                        </div>                      <div className='first-page-item-cols' style={{marginLeft:'20px'}}> 
-                                            <FontAwesomeIcon className='first-page-plus-icon' icon={faPlus} style={{ width:'25px',height:'25px',marginTop:'15px',color:'white'}}/>
-                                        </div>                      <div className='first-page-item-cols-4'>
-                                            <h4>دسته بندی نشده</h4>
-                                        </div>                      <div className='first-page-item-cols-last' style={{float:'right'}}>
-                                            <FontAwesomeIcon icon={faEllipsisV} style={{ color:'white'}}/>
-                                        </div>
-                                    </div>
-                                    <div className='first-page-item' >
-                                        <div className='first-page-item-cols' style={{}}>
-                                            <FontAwesomeIcon icon={faCheckSquare} style={{marginTop:'15px',height:'30px',width:'30px',marginLeft:'15px', color:'white'}}/>
-                                        </div>                      <div className='first-page-item-cols' style={{marginLeft:'20px'}}> 
-                                            <FontAwesomeIcon className='first-page-plus-icon' icon={faCircle} style={{ width:'10px',height:'10px',marginTop:'25px',    marginLeft: '10px',color:'#F10D0D'}}/>
-                                        </div>                      <div className='first-page-item-cols-4'>
-                                            <h4>دسته بندی نشده</h4>
-                                        </div>                      <div className='first-page-item-cols-last' style={{float:'right'}}>
-                                            <FontAwesomeIcon icon={faEllipsisV} style={{ color:'white'}}/>
-                                        </div>
-                                    </div> */}
-
-                                    
                                 </div>
-
                             </div>
 
                             {/* ***********second********* */}
@@ -528,15 +467,12 @@ class Leftbar extends React.Component{
                             
                             {/* **********third************* */}
                             <div className='page-container' style={{display:leftsidebar3}}>
-
                                 <div className='page-3-input-container'>
 
                                     {/* ***** 1 input***** */}
                                 
                                     <div className='page-3-input'>
-
                                         <Cal/>
-
                                         <div style={{width:'280px',float:'left', marginBottom:'0px',marginTop:'20px'}}>
                                             <Select
                                                 value={selectedOption}
@@ -545,8 +481,7 @@ class Leftbar extends React.Component{
                                                 placeholder=''
                                                 style={{width:'50px'}}
                                             />
-                                        </div>
-                                    
+                                        </div>                                    
                                         <div className='input-1-txt-container'>
                                             <h5 className='input-txt' style={{color:'#A6A7A8',fontSize:'20px',marginTop:'25px'}}>دستگاه</h5>
                                         </div>
@@ -575,165 +510,155 @@ class Leftbar extends React.Component{
                                
                                 
 
-                                {/* ******end 3 input****** */}
-                                <div className='page-3-last' style={{}}>
-
-                                    <div className='page-3-last-btns-item12'style={{cursor:'pointer'}}>
-                                        <FontAwesomeIcon className='sec-page-side-3-page-icon'icon={faTimes}/> 
+                                    {/* ******end 3 input****** */}
+                                    <div className='page-3-last' style={{}}>
+                                        <div className='page-3-last-btns-item12'style={{cursor:'pointer'}}>
+                                            <FontAwesomeIcon className='sec-page-side-3-page-icon'icon={faTimes}/> 
+                                        </div>
+                                        <div className='page-3-last-btns-item12'style={{cursor:'pointer'}}>
+                                            <FontAwesomeIcon className='sec-page-side-3-page-icon'icon={faDownload}/> 
+                                        </div>
+                                            <div className='page-3-last-btns-item-3' onClick={this.flag.bind(this)} style={{cursor:'pointer'}}>
+                                            <h5 className='page-3-last-btns-txt'>
+                                            نمایش تاریخچه
+                                            </h5>
+                                        </div>
                                     </div>
-
-                                    <div className='page-3-last-btns-item12'style={{cursor:'pointer'}}>
-                                        <FontAwesomeIcon className='sec-page-side-3-page-icon'icon={faDownload}/> 
-                                    </div>
-
-                                        <div className='page-3-last-btns-item-3' onClick={this.flag.bind(this)} style={{cursor:'pointer'}}>
-                                        <h5 className='page-3-last-btns-txt'>
-                                        نمایش تاریخچه
-                                        </h5>
-                                    </div>
-
-                                </div>
                                 
 
-                                {/* ****************** summary table************** */}
-                                <div style={{width:'100%',height:'590px',background:'#3e3b3b',marginTop:'30px',display:reportS}}>
-                                    <div className='sum-head' style={{borderBottom:'2px solid white',borderTop:'2px solid white',width: '100%', height:' 73px'}}>
-                                        <div style={{float:'left',marginRight:'20px',marginLeft:'20px'}}>
-                                            <h5 style={{color:'white',fontSize:'15px',marginBottom:'0px',marginTop:'15px'}}>
-                                               حداکثر سرعت
-                                            </h5>
-                                            <h5 style={{marginTop:'5px',color:'white',paddingLeft:'17px'}}>
-                                                km/h
-                                            </h5>
-                                        </div>
-                                        <div style={{float:'left',marginRight:'20px',marginLeft:'35px'}}>
-                                            <h5 style={{color:'white',fontSize:'15px',marginBottom:'0px',marginTop:'15px'}}>
-                                               میانگین سرعت
-                                            </h5>
-                                            <h5 style={{marginTop:'5px',color:'white',marginBottom:'0px',paddingLeft:'17px'}}>
-                                                km/h 
-                                            </h5>
-                                        </div>
-                                        <div style={{float:'right',marginRight:'20px'}}>
-                                            <h5 style={{color:'white',fontSize:'15px',marginBottom:'0px',marginTop:'15px'}}>
-                                                 طول سفر
-                                            </h5>
-                                            <h5 style={{marginTop:'5px',color:'white',paddingLeft:'17px'}}>
-                                                 m  
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <div className='sum-body'>
-                                    <div style={{float:'left',marginRight:'10px',marginLeft:'35px'}}>
-                                            <h5 style={{fontSize:'16px',color:'white'}}>
-                                                {this.state.summary.max}
-                                            </h5>
-                                        </div>
-                                        <div style={{float:'left',marginRight:'10px',marginLeft:'85px'}}>
-                                            <h5 style={{fontSize:'16px',color:'white'}}>
-                                                {this.state.summary.avr}                       
-                                            </h5>
-                                        </div>
-                                        <div style={{float:'right',marginRight:'20px'}}>
-                                            <h5 style={{fontSize:'16px',color:'white'}}>
-                                                {this.state.summary.dis} 
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                
-                                {/* ****************** trips table************** */}                   
-                                <div style={{width:'100%',height:'588px',background:'white',marginTop:'30px',display:reportT,borderBottom:'solid 2px white'}}>
-                                    {/* *************trip head******** */}
-                                    <div className='trip-head'>
-                                        <div className='' style={{float:'left',marginLeft:'10px'}}>
-                                            <h6 style={{color:'black'}}>
-                                                شروع سفر
-                                            </h6>
-                                        </div>
-                                        <div className='' style={{float:'left',marginLeft:'40px'}}>
-                                            <h6 style={{color:'black'}}>
-                                                پایان سفر
-                                            </h6>
-                                        </div>
-                                        <div className='' style={{float:'left',marginLeft:'40px'}}>
-                                            <h6 style={{color:'black'}}>
-                                                میانگین سرعت
-                                            </h6>
-                                        </div>
-                                        <div className='' style={{float:'left',marginLeft:'30px'}}>
-                                            <h6 style={{color:'black'}}>
+                                    {/* ****************** summary table************** */}
+                                    <div style={{width:'100%',height:'590px',background:'#3e3b3b',marginTop:'30px',display:reportS}}>
+                                        <div className='sum-head' style={{borderBottom:'2px solid white',borderTop:'2px solid white',width: '100%', height:' 73px'}}>
+                                            <div style={{float:'left',marginRight:'20px',marginLeft:'20px'}}>
+                                                <h5 style={{color:'white',fontSize:'15px',marginBottom:'0px',marginTop:'15px'}}>
                                                 حداکثر سرعت
-                                            </h6>
+                                                </h5>
+                                                <h5 style={{marginTop:'5px',color:'white',paddingLeft:'17px'}}>
+                                                    km/h
+                                                </h5>
+                                            </div>
+                                            <div style={{float:'left',marginRight:'20px',marginLeft:'35px'}}>
+                                                <h5 style={{color:'white',fontSize:'15px',marginBottom:'0px',marginTop:'15px'}}>
+                                                میانگین سرعت
+                                                </h5>
+                                                <h5 style={{marginTop:'5px',color:'white',marginBottom:'0px',paddingLeft:'17px'}}>
+                                                    km/h 
+                                                </h5>
+                                            </div>
+                                            <div style={{float:'right',marginRight:'20px'}}>
+                                                <h5 style={{color:'white',fontSize:'15px',marginBottom:'0px',marginTop:'15px'}}>
+                                                    طول سفر
+                                                </h5>
+                                                <h5 style={{marginTop:'5px',color:'white',paddingLeft:'17px'}}>
+                                                    m  
+                                                </h5>
+                                            </div>
                                         </div>
-                                        <div className='' style={{float:'left',marginLeft:'30px'}}>
-                                            <h6 style={{color:'black'}}>
-                                                طول سفر
-                                            </h6>
+                                        <div className='sum-body'>
+                                        <div style={{float:'left',marginRight:'10px',marginLeft:'35px'}}>
+                                                <h5 style={{fontSize:'16px',color:'white'}}>
+                                                    {this.state.summary.max}
+                                                </h5>
+                                            </div>
+                                            <div style={{float:'left',marginRight:'10px',marginLeft:'85px'}}>
+                                                <h5 style={{fontSize:'16px',color:'white'}}>
+                                                    {this.state.summary.avr}                       
+                                                </h5>
+                                            </div>
+                                            <div style={{float:'right',marginRight:'20px'}}>
+                                                <h5 style={{fontSize:'16px',color:'white'}}>
+                                                    {this.state.summary.dis} 
+                                                </h5>
+                                            </div>
                                         </div>
                                     </div>
-                                    
-                                    
-                                    
-                                    {/* *************trip body******** */}
-                                    <div className='trip-body pointers' style={{width:'100%',height:' 530px',overflowY:'scroll',display:bodyDis}} >
-                                        {
-                                            Ts.map(T=>
-                                                <div style={{float:'left',background:tripBack}} onClick={()=>{this.routes(T[5],T[6])}}>
-                                                    <div className='' style={{float:'left',marginLeft:'8px'}}>
-                                                        <h5 style={{marginTop:'5px',marginBottom:'0px'}}>   {T[0][0]}
-                                                        </h5>           
-                                                        <h5 style={{marginTop:'5px'}}>
-                                                            {T[0][1]}
-                                                        </h5>
-                                                    </div>
-                                                    <div style={{float:'left',marginLeft:'20px'}}>
-                                                        <h5 style={{marginTop:'5px',marginBottom:'0px'}}>   
-                                                            {T[1][0]}
-                                                        </h5>           
-                                                        <h5 style={{marginTop:'5px'}}>
-                                                            {T[1][1]}
-                                                        </h5>
-                                                    </div>
-                                                    <div className='' style={{float:'left',marginTop:'4px',marginLeft:'45px'}}>
-                                                        {T[2]}
-                                                    </div>
-                                                    <div className='' style={{float:'left',marginTop:'4px',marginLeft:'40px'}}>
-                                                        {T[3]}
-                                                    </div>
-                                                    <div className='' style={{float:'left',marginTop:'4px',marginLeft:'17px'}}>
-                                                        {T[4]}
-                                                    </div>
-                                                </div>
-                                                )
-                                        }
-                                    </div>
-                                </div>
                                 
-                                {/* *******report loading******* */}
-                                <div className='loading-report' style={{width:'100%',height:'590px',background:'#081d1891',marginTop:'-590px',display:loadDis}}>
-                                    <BarLoader
-                                        css={override}
-                                        size={150}
-                                        //size={"150px"} this also works
-                                        color={"#54D5EA"}
-                                        loading={this.state.loading}
-                                        style={{display:loadDis}}
-                                        height={20}
-                                        width={380}
-                                    />
+                                
+                                    {/* ****************** trips table************** */}
+                                    <div style={{width:'100%',height:'588px',background:'white',marginTop:'30px',display:reportT,borderBottom:'solid 2px white'}}>
+                                        {/* *************trip head******** */}
+                                        <div className='trip-head'>
+                                            <div className='' style={{float:'left',marginLeft:'10px'}}>
+                                                <h6 style={{color:'black'}}>
+                                                    شروع سفر
+                                                </h6>
+                                            </div>
+                                            <div className='' style={{float:'left',marginLeft:'40px'}}>
+                                                <h6 style={{color:'black'}}>
+                                                    پایان سفر
+                                                </h6>
+                                            </div>
+                                            <div className='' style={{float:'left',marginLeft:'40px'}}>
+                                                <h6 style={{color:'black'}}>
+                                                    میانگین سرعت
+                                                </h6>
+                                            </div>
+                                            <div className='' style={{float:'left',marginLeft:'30px'}}>
+                                                <h6 style={{color:'black'}}>
+                                                    حداکثر سرعت
+                                                </h6>
+                                            </div>
+                                            <div className='' style={{float:'left',marginLeft:'30px'}}>
+                                                <h6 style={{color:'black'}}>
+                                                    طول سفر
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        {/* *************trip body******** */}
+                                        <div className='trip-body pointers' style={{width:'100%',height:' 530px',overflowY:'scroll',display:bodyDis}} >
+                                            {
+                                                Ts.map(T=>
+                                                    <div style={{float:'left',background:tripBack}} onClick={()=>{this.routes(T[5],T[6])}}>
+                                                        <div className='' style={{float:'left',marginLeft:'8px'}}>
+                                                            <h5 style={{marginTop:'5px',marginBottom:'0px'}}>   {T[0][0]}
+                                                            </h5>           
+                                                            <h5 style={{marginTop:'5px'}}>
+                                                                {T[0][1]}
+                                                            </h5>
+                                                        </div>
+                                                        <div style={{float:'left',marginLeft:'20px'}}>
+                                                            <h5 style={{marginTop:'5px',marginBottom:'0px'}}>   
+                                                                {T[1][0]}
+                                                            </h5>           
+                                                            <h5 style={{marginTop:'5px'}}>
+                                                                {T[1][1]}
+                                                            </h5>
+                                                        </div>
+                                                        <div className='' style={{float:'left',marginTop:'4px',marginLeft:'45px'}}>
+                                                            {T[2]}
+                                                        </div>
+                                                        <div className='' style={{float:'left',marginTop:'4px',marginLeft:'40px'}}>
+                                                            {T[3]}
+                                                        </div>
+                                                        <div className='' style={{float:'left',marginTop:'4px',marginLeft:'17px'}}>
+                                                            {T[4]}
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
+                                        </div>
+                                    </div>
+                                
+                                    {/* *******report loading******* */}
+                                    <div className='loading-report' style={{width:'100%',height:'590px',background:'#081d1891',marginTop:'-590px',display:loadDis}}>
+                                        <BarLoader
+                                            css={override}
+                                            size={150}
+                                            //size={"150px"} this also works
+                                            color={"#54D5EA"}
+                                            loading={this.state.loading}
+                                            style={{display:loadDis}}
+                                            height={20}
+                                            width={380}
+                                        />
+                                    </div>
                                 </div>
-                                </div>
-
-
                             </div>
-
-                        </div>
-                        
+                        </div>                
+                    </div>
+                    <div className='leftbar-btn'onClick={()=>this.leftbar()}>
+                    </div>
                 </div>
-                <div className='leftbar-btn' style={{}} onClick={()=>this.leftbar()}></div>
-            </div>
         )
     }
 

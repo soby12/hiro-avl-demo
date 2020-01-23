@@ -1,5 +1,5 @@
 import React from 'react';
-import { faPoll, faBars ,faSun, faFile , faWrench ,faMap} from "@fortawesome/free-solid-svg-icons";
+import { faPoll,faSun, faFile , faWrench ,faMap} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {getCarId,getCarSum,getCarTrip,changeFlag,getDate,getDevices,getRoute} from '../../redux/actions/index';
 import {connect} from "react-redux";
@@ -25,9 +25,7 @@ class SideBar extends React.Component{
             txtDis:'',
             legoML:'60px'
         }
-        console.log(this.props);
-        
-        
+        console.log(this.props);    
     }
 
     sideClick(){
@@ -39,9 +37,7 @@ class SideBar extends React.Component{
     }
 
     render(){
-        const {dashCon,mapA,dashA,mapCon,dashIcon,mapIcon,dash_txt,map_txt,sideCon,txtDis,legoML}=this.state;
-        // console.log(dashCon);
-        
+        const {dashCon,mapA,dashA,mapCon,dashIcon,mapIcon,dash_txt,map_txt,sideCon,txtDis,legoML}=this.state;        
         return(
             <div className={sideCon} style={{}}>
                 <div className='side-logo'>
@@ -60,58 +56,46 @@ class SideBar extends React.Component{
                     <div className='side-list-item'>
                         <img className='menu-bar' src={require('../img/menu1.png')} /*onClick={ this.sideClick.bind(this)}//*//>
                     </div>
-
                     <div className={dashCon}>
                         <a href='http://localhost:3000/dash'className={dashA}>
                             <FontAwesomeIcon className={dashIcon} icon={faPoll} style={{width:'25px',height:'25px'}}/>
                             <h3 className={dash_txt} style={{display:txtDis}}>
                                 داشبورد
-                            </h3>
-                            
+                            </h3>                            
                         </a>                        
                     </div>
-
                     <div className={mapCon}>
                         <a href='http://localhost:3000/maps' className={mapA}>
                             <FontAwesomeIcon className={mapIcon} icon={faMap} style={{width:'25px',height:'25px'}}/>
                             <h3 className={map_txt} style={{display:txtDis}}>
                                 نقشه
                             </h3>
-
                         </a>
                     </div>
-
                     <div className='side-list-item'>
                         <a href='#' className='side-list-item-text'>
                             <FontAwesomeIcon className='icon' icon={faFile} style={{width:'25px',height:'25px'}}/>
                             <h3 className='side-list-h3' style={{display:txtDis}}>
                                 دستگاه ها
                             </h3>
-
                         </a>
                     </div>
-
                     <div className='side-list-item'>
                         <a href='#' className='side-list-item-text'>
                             <FontAwesomeIcon className='icon' icon={faSun} style={{width:'25px',height:'25px'}}/>
                             <h3 className='side-list-h3' style={{display:txtDis}}>
                                 عملیات
                             </h3>
-
                         </a>
                     </div>
-
                     <div className='side-list-item'>
                         <a href='#' className='side-list-item-text'>
                             <FontAwesomeIcon className='icon' icon={faWrench} style={{width:'25px',height:'25px'}}/>
                             <h3 className='side-list-h3' style={{display:txtDis}}>
                                 نگه داری
                             </h3>
-
                         </a>
                     </div>
-
-
                 </div>
             </div>
         )

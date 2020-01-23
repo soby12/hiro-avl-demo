@@ -57,17 +57,6 @@ export const changeFlag =(f)=>{
 }
 
 export const getDevices=(dev)=>{
-    // fetch('/api/devices')
-    //         .then(response => {
-    //             if (response.ok) {
-    //             response.json().then(devices => {
-    //                     return{
-    //                         type:'DEVICE',
-    //                         payload:devices
-    //                     }            
-    //                 });            
-    //             };
-    //         });
     return {
         type:'DEVICE',
         payload:dev,
@@ -75,15 +64,10 @@ export const getDevices=(dev)=>{
             
 }
 
-export const getRoute =(/*id,from,to*/r)=>{
+export const getRoute =(r)=>{
     return{
         type:"ROUTE",
         payload:r
-        // {
-        //     // id:id,
-        //     // from:from,
-        //     // to:to
-        // }
     }
 }
 export const Side =(nav,con,left,right)=>{

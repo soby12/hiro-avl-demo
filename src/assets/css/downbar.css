@@ -11,14 +11,12 @@
     background:#121416;
     height:20px;
     width:50px;
-    /* z-index: 6; */
     margin-left:525px;
 
 }
 .downbar-con{
     width:100%;
     float:right;
-    /* z-index: 6; */
     background:#121416CF;
 }
 

@@ -1,12 +1,9 @@
 import React from 'react';
-// import { Col , Row } from 'react-bootstrap';
 
-// import SecPagSideL from './second-page-sideL';
 import LeftbarRes from './leftbar_res';
 import Downbar from './downbar';
 import Leftbar from './leftbar';
 import SimpleExample from './API/LeafLet';
-// import SimpleExample from './API/React-Leaft';
 
 export default class SecondPannel extends React.Component{
     constructor(props){

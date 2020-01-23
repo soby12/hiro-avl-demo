@@ -12,16 +12,10 @@
           /* Safari, Android, iOS */
          /* url('../fonts/open-sans-v13-latin-regular.svg#OpenSans') format('svg'); Legacy iOS */ 
   }
-  /* body {
-    font-family: 'IRANSans';
-  } */
 
 
 
 body {
     background: #121416 ;
     font-family: 'IRANSans';
-    /* font-family:  'Mirza', cursive; */
 }
-
-

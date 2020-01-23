@@ -3,7 +3,6 @@
     height: 870px;
     background: transparent;
     float: left;
-    /* margin-top: 10px; */
 }
 
 /* *******left********* */
@@ -47,7 +46,6 @@
 }
 .pannel-card-header-txt{
     text-align: center;
-    /* font: Bold 35px/47px Segoe UI; */
     font-size: 25px;
     letter-spacing: 0;
     color: #A6A7A8;
@@ -63,7 +61,6 @@
 }
 .pannel-card-sub-txt{
     text-align: center;
-    /* font: bold 20px/27px Segoe UI; */
     font-size: 15px;
     color: #A6A7A8;
     font-size: 20px;
@@ -87,7 +84,6 @@
 }
 .pannel-card-number-L-h{
     text-align: left;
-    /* font: Bold 50px/67px Segoe UI; */
     letter-spacing: 0;
     color: #A6A7A8;
     font-size: 40px;
@@ -122,8 +118,6 @@
     float: left;
 }
 .table-head-item-h{
-    /* padding-left: 15px; */
-    /* font: normal 17px/20px Segoe UI; */
     text-align: center;
     color: #A6A7A8;
     padding-bottom: 10px;
@@ -144,7 +138,6 @@
 }
 .table-col-h{
     text-align: right;
-    /* font: normal 15px/20px Segoe UI; */
     color: #A6A7A8;
     margin-right: 10px;
     font-size: 13px;
@@ -168,7 +161,6 @@
     background: transparent;
     float: left;
     margin-left: 20px;
-    /* margin-top: 20px; */
 }
 .pannel-right-top{
     width: 100%;
@@ -204,14 +196,12 @@
 }
 .data-first-h2{
     text-align: right;
-    /* font: Bold 35px/47px Segoe UI; */
     letter-spacing: 0;
     color: #A6A7A8;
     margin-bottom: 5px;
 }
 .data-first-h5{
     text-align: right;
-    /* font:normal  18px/24px Segoe UI; */
     letter-spacing: 0;
     color: #A6A7A8;
     margin-top: 5px;
@@ -236,7 +226,6 @@
     margin-bottom: 0px;
     text-align: center;
     font-size: 50px;
-    /* font:Bold 50px/67px Segoe UI; */
     color: #E4500C
 }
 .data-sec-h5{
@@ -255,14 +244,12 @@
     text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
-    /* font: Bold 50px/67px Segoe UI; */
     color: #A6A7A8;
     font-size: 40px;
 }
 .data-ther-h5{
     text-align: center;
     margin-top: 0px;
-    /* font: bold 18px/24px Segoe UI; */
     letter-spacing: 0;
     color: #A6A7A8;
     font-size: 20px;
@@ -301,7 +288,6 @@
 }
 .pannel-header-content1-text{
     text-align: left;
-    /* font: normal 20px/27px Segoe UI; */
     letter-spacing: 0;
     color: #A6A7A8;
     margin-left: 10px;
@@ -316,7 +302,6 @@
 }
 .pannel-header-content2-text{
     text-align: right;
-    /* font: normal 20px/27px Segoe UI; */
     letter-spacing: 0;
     color: #A6A7A8;
     margin-right: 10px;
@@ -334,35 +319,29 @@
 
     }
     .pannel-left{
-        /* width:670px; */
         width: 40%;
         height: 100%;
         background: transparent;
         float: left;
         margin-left: 20px;
-        /* margin: auto; */
     
     
     }
     .pannel-right{
-        /* width: 1000px; */
         width: 55%;
         height: 100%;
         background: transparent;
         float: left;
         margin-left: 20px;
-        /* margin-top: 20px; */
     }
     .pannel-card-header-txt{
         text-align: center;
-        /* font: Bold 35px/47px Segoe UI; */
         letter-spacing: 0;
         color: #A6A7A8;
         font-size: 25px;
     }
     .pannel-card-number-L-h{
         text-align: left;
-        /* font: Bold 50px/67px Segoe UI; */
         letter-spacing: 0;
         color: #A6A7A8;
         margin-top: -5px;
@@ -378,7 +357,6 @@
     }
     .data-first-h2{
         text-align: right;
-        /* font: Bold 35px/47px Segoe UI; */
         letter-spacing: 0;
         color: #A6A7A8;
         margin-bottom: 5px;

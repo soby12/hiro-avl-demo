@@ -33,10 +33,7 @@ import { createStore,applyMiddleware} from 'redux';
 import rootReducer  from './redux/reducers/index';
 import logger from 'redux-logger'
 
-// const creat = ()=>{
-//   const instore=
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),  applyMiddleware(logger)
-// }
+
 const store= createStore(rootReducer, applyMiddleware(logger))
 
 

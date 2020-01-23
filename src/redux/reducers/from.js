@@ -1,4 +1,3 @@
-
 const From = (state='from',action)=>{
     switch(action.type){
         case "FROM":{
@@ -20,8 +19,4 @@ const DateR = (state='date',action)=>{
         }
     }
 }
-
-
-
 export default From;
-// export default DateR;

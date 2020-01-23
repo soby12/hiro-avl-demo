@@ -16,10 +16,10 @@ class SecondPage extends React.Component{
         fetch('/api/devices')
             .then(response => {
                 if (response.ok) {
-                response.json().then(devices => {
-                    this.props.getDevices(devices);
-                    this.props.changeFlag(true)
-                });            
+                    response.json().then(devices => {
+                        this.props.getDevices(devices);
+                        this.props.changeFlag(true)
+                    });            
                 };
             });
     }
@@ -42,7 +42,6 @@ class SecondPage extends React.Component{
             </React.Fragment>
         )
     }
-
 }
 
 const mapStateToProps = state => {

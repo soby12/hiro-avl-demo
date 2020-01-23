@@ -1,7 +1,6 @@
 import React from 'react';
 import { css } from "@emotion/core";
-import { ClipLoader ,RingLoader,SquareLoader,BarLoader} from "react-spinners";
-import Websocket from 'react-websocket';
+import {/* ClipLoader ,RingLoader,SquareLoader,*/BarLoader} from "react-spinners";
 import {getCarId,getCarSum,getCarTrip,changeFlag,getDate,getDevices} from '../../redux/actions/index';
 import {connect} from "react-redux";
 
@@ -27,9 +26,7 @@ class FirstPage extends React.Component{
             .then(response => {
                 if (response.ok) {
                 response.json().then(devices => {
-                    console.log(devices); 
-                    // this.props.getDevices(devices)           
-                    // this.props.getDevices()           
+                    console.log(devices);        
                 });
                 this.setState({display:'none'})            
                 };
