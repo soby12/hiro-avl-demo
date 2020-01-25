@@ -12,15 +12,16 @@ class SimpleExample extends React.Component {
             lng: -0.09,
             zoom: 13,
             routes:this.props.routees,
-            car33:[36.0074496, 50.7053248],
-            car34:[35.9674496, 50.7053248],
-            car35:[35.9052642, 50.8876486],
-            car36:[35.8127072, 50.9863232],
-            car38:[35.9127072, 50.9863232],
-            car73:[36.5127072, 50.9863232],
-            car74:[34.8556546, 50.9794034],
-            car75:[35.8127072, 50.9863232],
+            // car33:[36.0074496, 50.7053248],
+            // car34:[35.9674496, 50.7053248],
+            // car35:[35.9052642, 50.8876486],
+            // car36:[35.8127072, 50.9863232],
+            // car38:[35.9127072, 50.9863232],
+            // car73:[36.5127072, 50.9863232],
+            // car74:[34.8556546, 50.9794034],
+            // car75:[35.8127072, 50.9863232],
             poly:null,
+            Cars:null,
         }
         console.log('lesf constructor *********');
     }
@@ -53,7 +54,7 @@ class SimpleExample extends React.Component {
         const map= this.map = Leaf.map('map',{
             center:[35.830618, 50.932967],
             zoom:12.3,
-            zoomControl:false,            
+            zoomControl:true,            
         });
         var street= Leaf.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
             id:'MapId',
@@ -70,19 +71,10 @@ class SimpleExample extends React.Component {
                     console.log(devices);  
                     devices.map(device=>{
                         if(device.status==='online'){
-                            // var car=Leaf.marker([35.8127072, 50.9863232], {icon: carActive} ).bindPopup(`<h2>${device.name}</h2><h4> ال نود </h4>`).addTo(this.map)
-                            // console.log(car);
-                            
-                            // deviceOnMap[device.id]=Leaf.marker([35.8127072, 50.9863232], {icon: carActive} ).bindPopup(`<h2>${device.name}</h2><h4> ال نود </h4>`).addTo(this.map)
 
                         }else if(device.status==='offline'){
-                            // var car=Leaf.marker([35.9052642, 50.8876486], {icon: carDeactive} ).bindPopup(`<h2>${device.name}</h2><h4> ال نود </h4>`).addTo(this.map)
-                            // deviceOnMap[device.id]=Leaf.marker([35.8127072, 50.9863232], {icon: carActive} ).bindPopup(`<h2>${device.name}</h2><h4> ال نود </h4>`).addTo(this.map)
 
                         }
-                        // else{
-
-                        // }
                     })      
                 });
                 // this.setState({display:'none'})            
@@ -126,17 +118,14 @@ class SimpleExample extends React.Component {
                 const cars = {}
                 if(data.positions.length > 1){
                     data.positions.map(position=>{
-                        // const i = position.deviceId
-                        // const cars=
-                        console.log(position.deviceId);
+                        // console.log(position.deviceId);
                         cars[position.deviceId]=Leaf.marker([position.latitude,position.longitude], {icon: carActive} ).bindPopup(`<h2></h2><h4> ال نود </h4>`).addTo(this.map)
-                        
+                        this.setState({Cars:cars})
                     })
-                    console.log(cars[1]);
+                    // console.log(cars[1]);
                 }else{
-                    // cars[`${data.positions[0].deviceId}`].setLatLng([data.positions[0].latitude,data.positions[0].longitude]);
-                    
-                    // this.updatePositions(data.positions,this.state.deviceOnMap/*,car33,car36,car74,car35,car34,car38,car73,car75*/);
+                    const Cars= this.state.Cars
+                    this.updatePositions(data.positions,Cars)
                 }
                 
             }
@@ -159,7 +148,11 @@ class SimpleExample extends React.Component {
     }
 
     updatePositions(array,devices/*car33,car36,car74,car35,car34,car38,car73,car75*/){
-        // devices[array[0].deviceId].setLatLng([array[0].latitude,array[0].longitude]);
+        // console.log(array[0].deviceId);
+        const ID =array[0].deviceId;
+        // console.log(devices[ID]);
+        devices[ID].setLatLng([array[0].latitude,array[0].longitude])
+        
         // if(array[0].deviceId==33){
         //     console.log('updateposition 33');
         //     car33.setLatLng([array[0].latitude,array[0].longitude]);
@@ -197,7 +190,7 @@ class SimpleExample extends React.Component {
 
 
     updatePoly(poly,latlon){
-        poly.setLatLngs(latlon)
+        // poly.setLatLngs(latlon)
     }
 
     componentDidUpdate(prevState,preProps){
