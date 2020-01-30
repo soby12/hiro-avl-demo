@@ -12,16 +12,9 @@ class SimpleExample extends React.Component {
             lng: -0.09,
             zoom: 13,
             routes:this.props.routees,
-            // car33:[36.0074496, 50.7053248],
-            // car34:[35.9674496, 50.7053248],
-            // car35:[35.9052642, 50.8876486],
-            // car36:[35.8127072, 50.9863232],
-            // car38:[35.9127072, 50.9863232],
-            // car73:[36.5127072, 50.9863232],
-            // car74:[34.8556546, 50.9794034],
-            // car75:[35.8127072, 50.9863232],
             poly:null,
             Cars:null,
+            deviceName:['first'],
         }
         console.log('lesf constructor *********');
     }
@@ -56,58 +49,6 @@ class SimpleExample extends React.Component {
             zoom:12.3,
             zoomControl:true,            
         });
-        // ***********************************
-        // const tool=Leaf.control.custom({
-        //     position: 'topright',
-        //     content : '<button type="button" class="btn btn-default">'+
-        //               '    <i class="fa fa-crosshairs"></i>'+
-        //               '</button>'+
-        //               '<button type="button" class="btn btn-info">'+
-        //               '    <i class="fa fa-compass"></i>'+
-        //               '</button>'+
-        //               '<button type="button" class="btn btn-primary">'+
-        //               '    <i class="fa fa-spinner fa-pulse fa-fw"></i>'+
-        //               '</button>'+
-        //               '<button type="button" class="btn btn-danger">'+
-        //               '    <i class="fa fa-times"></i>'+
-        //               '</button>'+
-        //               '<button type="button" class="btn btn-success">'+
-        //               '    <i class="fa fa-check"></i>'+
-        //               '</button>'+
-        //               '<button type="button" class="btn btn-warning">'+
-        //               '    <i class="fa fa-exclamation-triangle"></i>'+
-        //               '</button>',
-        //     classes : 'btn-group-vertical btn-group-sm',
-        //     style   :
-        //     {
-        //         margin: '10px',
-        //         padding: '0px 0 0 0',
-        //         cursor: 'pointer',
-        //     },
-        //     // datas   :
-        //     // {
-        //     //     'foo': 'bar',
-        //     // },
-        //     // events:
-        //     // {
-        //     //     click: function(data)
-        //     //     {
-        //     //         console.log('wrapper div element clicked');
-        //     //         console.log(data);
-        //     //     },
-        //     //     dblclick: function(data)
-        //     //     {
-        //     //         console.log('wrapper div element dblclicked');
-        //     //         console.log(data);
-        //     //     },
-        //     //     contextmenu: function(data)
-        //     //     {
-        //     //         console.log('wrapper div element contextmenu');
-        //     //         console.log(data);
-        //     //     },
-        //     // }
-        // }).addTo(map);
-        // ***********************************
         var street= Leaf.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
             id:'MapId',
             detectRetina:true,
@@ -115,45 +56,10 @@ class SimpleExample extends React.Component {
             maxNativeZoom:17,
             subdomains:['mt0','mt1','mt2','mt3'],
         }).addTo(this.map)
-        const deviceOnMap=[]
-        fetch('/api/devices')
-            .then(response => {
-                if (response.ok) {
-                response.json().then(devices => {
-                    console.log(devices);  
-                    devices.map(device=>{
-                        if(device.status==='online'){
-
-                        }else if(device.status==='offline'){
-
-                        }
-                    })      
-                });
-                // this.setState({display:'none'})            
-                };
-            }); 
-
-        console.log(deviceOnMap);
-        this.setState({deviceOnMap})
-            
-
-        // var car33=Leaf.marker(this.state.car33, {icon: carActive} ).bindPopup("<h2>car33</h2><h4> ال نود </h4>").addTo(this.map)
-
-        // var car34=Leaf.marker(this.state.car34, {icon: carActive} ).bindPopup("<b>car34</b><br>I am a popup.").addTo(this.map);
         
-        // var car35=Leaf.marker(this.state.car35, {icon: carDeactive} ).bindPopup("<b>car35</b><br>I am a popup.").addTo(this.map);
+
+        console.log(this.props.devices);
         
-        // var car36=Leaf.marker(this.state.car36, {icon: carActive} ).bindPopup("<b>car36</b><br>I am a popup.").addTo(this.map);
-
-        // var car38=Leaf.marker(this.state.car38, {icon: carActive} ).bindPopup("<b>car38</b><br>I am a popup.").addTo(this.map);
-
-        // var car73=Leaf.marker(this.state.car73, {icon: carActive} ).bindPopup("<b>car73</b><br>I am a popup.").addTo(this.map);
-        
-        // var car74=Leaf.marker(this.state.car74, {icon: carActive} ).bindPopup("<b>car74</b><br>I am a popup.").addTo(this.map);
-
-        // var car75=Leaf.marker(this.state.car75, {icon: carActive} ).bindPopup("<b>car75</b><br>I am a popup.").addTo(this.map);
-
-
         this.ws.onopen = () => {
             console.log('connected')
             }    
@@ -162,16 +68,17 @@ class SimpleExample extends React.Component {
 
             if (data.devices) {
                 console.log('devices',data);
-
                 this.updateDevices(data.devices);
             }
             if (data.positions) {
                 console.log('positions',data);
                 const cars = {}
                 if(data.positions.length > 1){
+                    console.log(this.state.deviceName);
+                    const names=this.state.deviceName;
                     data.positions.map(position=>{
                         // console.log(position.deviceId);
-                        cars[position.deviceId]=Leaf.marker([position.latitude,position.longitude], {icon: carActive} ).bindPopup(`<h2></h2><h4> ال نود </h4>`).addTo(this.map)
+                        cars[position.deviceId]=Leaf.marker([position.latitude,position.longitude], {icon: carActive} ).bindPopup(`<h2>${position.deviceId}</h2><h4>${names[position.deviceId]} </h4>`).addTo(this.map)
                         this.setState({Cars:cars})
                     })
                     // console.log(cars[1]);
@@ -181,9 +88,10 @@ class SimpleExample extends React.Component {
                 }
                 
             }
-            // if (data.events) {
-            //     this.updateEvents(data.events);
-            // }        
+            if (data.events) {
+                // this.updateEvents(data.events);
+                console.log(data.events)
+            }        
             }    
         this.ws.onclose = () => {
             // console.log('disconnected')
@@ -199,37 +107,10 @@ class SimpleExample extends React.Component {
         console.log('this is a devise',array[0].id,array[0].status);    
     }
 
-    updatePositions(array,devices/*car33,car36,car74,car35,car34,car38,car73,car75*/){
-        // console.log(array[0].deviceId);
+    updatePositions(array,devices){
         const ID =array[0].deviceId;
-        // console.log(devices[ID]);
         devices[ID].setLatLng([array[0].latitude,array[0].longitude])
         
-        // if(array[0].deviceId==33){
-        //     console.log('updateposition 33');
-        //     car33.setLatLng([array[0].latitude,array[0].longitude]);
-        // }else if(array[0].deviceId==74){
-        //     console.log('updateposition 74');
-        //     car74.setLatLng([array[0].latitude,array[0].longitude]);
-        // }else if(array[0].deviceId==35){
-        //     console.log('updateposition 35');
-        //     car35.setLatLng([array[0].latitude,array[0].longitude]);
-        // }else if(array[0].deviceId==36){
-        //     console.log('updateposition 36');
-        //     car36.setLatLng([array[0].latitude,array[0].longitude]);
-        // }else if(array[0].deviceId==38){
-        //     console.log('updateposition 38');
-        //     car38.setLatLng([array[0].latitude,array[0].longitude]);
-        // }else if(array[0].deviceId==73){
-        //     console.log('updateposition 73');
-        //     car73.setLatLng([array[0].latitude,array[0].longitude]);
-        // }else if(array[0].deviceId==34){
-        //     console.log('updateposition 34');
-        //     car34.setLatLng([array[0].latitude,array[0].longitude]);
-        // }else if(array[0].deviceId==75){
-        //     console.log('updateposition 75');
-        //     car75.setLatLng([array[0].latitude,array[0].longitude]);  
-        // }
     }
     createPolyline(){
         if(this.props.routees){
@@ -241,33 +122,15 @@ class SimpleExample extends React.Component {
     }
 
 
-    updatePoly(poly,latlon){
-        // poly.setLatLngs(latlon)
-    }
 
-    componentDidUpdate(prevState,preProps){
-        this.updatePoly(this.state.poly,this.props.routees)
-    }
+    // componentDidUpdate(prevState,preProps){
+    //     this.updatePoly(this.state.poly,this.props.routees)
+    // }
     
     componentDidMount(){
         console.log('DidMount');
-
         this.createMap()
-        
-
         this.createPolyline()
-
-
-
-            // ********circle
-            // Leaf.circle([35.83, 51.408], {
-            //     color: 'red',
-            //     fillColor: '#f03',
-            //     fillOpacity: 0.5,
-            //     radius: 5000
-            // }).addTo(this.map)
-
-
             // ********************location on click
             // map.on('click', function(ev) {
             //     alert(ev.latlng); // ev is an event object (MouseEvent in this case)
@@ -277,7 +140,6 @@ class SimpleExample extends React.Component {
             //     // x.push([lat,lng]);
             //     console.log(x);                
             //   });
-
         }
 
         

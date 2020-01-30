@@ -31,7 +31,7 @@ class Leftbar extends React.Component{
         super(props);
         this.state={
             con_h:'100%',
-            con_w:'0px',
+            con_w:'410px',
 
             leftsidebar1:'',
             leftsidebar1Cls:'sec-page-side-L-head-item-active',
@@ -41,6 +41,8 @@ class Leftbar extends React.Component{
             leftsidebar3Cls:'sec-page-side-L-head-item',
 
             btn_display:'none',
+            leftbarConW:'20px',
+            leftbarConDis:'none',
 
             AllDevices:[{name:'دستگاه ها',status:'online'}],
             options:[],
@@ -78,22 +80,22 @@ class Leftbar extends React.Component{
                 });          
             };
         });
-        String.prototype.allReplace = function(obj) {
-            var retStr = this;
-            for (var x in obj) {
-                retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
-            }
-            return retStr;
-        };
+        // String.prototype.allReplace = function(obj) {
+        //     var retStr = this;
+        //     for (var x in obj) {
+        //         retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
+        //     }
+        //     return retStr;
+        // };
         
     }
-   
+    ws = new WebSocket('ws://shahrdari.dynu.net:8082/api/socket')
     
     leftbar(){               
-        if(this.state.con_w==='410px'){
-            this.setState({con_w:'0px',btn_display:'none'})
+        if(this.state.leftbarConDis==='none'){
+            this.setState({btn_display:'',leftbarConDis:'block',leftbarConW:'430px'})
         }else{
-            this.setState({con_w:'410px',btn_display:''})
+            this.setState({btn_display:'none',leftbarConDis:'none',leftbarConW:'20px'})
         }
     }
     leftsidebar1(){
@@ -167,7 +169,28 @@ class Leftbar extends React.Component{
 //         this.props.parentCallback(routees);
 //    }
 
+    componentDidMount() {
+        this.ws.onopen = () => {
+            console.log('connected')
+            }    
+        this.ws.onmessage = event => { 
+            var data = JSON.parse(event.data);
 
+            if (data.devices) {
+            }
+            if (data.positions) {
+                
+            }
+            if (data.events) {
+                console.log(data.events,'*****************event')
+            }        
+            }    
+        this.ws.onclose = () => {
+            // console.log('disconnected')
+            // setTimeout(() => this.connectSocket(), 60 * 1000);
+            // automatically try to reconnect on connection loss    
+        }
+    }
     routes(f,t){
         const id=this.props.carId;
         const routes=[]
@@ -190,7 +213,7 @@ class Leftbar extends React.Component{
         console.log(this.state.routees);
         this.props.getRoute(this.state.routees)  
         
-        const {con_h,con_w,selectedOption, leftsidebar1,leftsidebar1Cls, leftsidebar2,leftsidebar2Cls, leftsidebar3,leftsidebar3Cls, btn_display,reportS,reportT,checkedS,checkedT,loadDis,bodyDis,trips,AllDevices,tripBack} =this.state;
+        const {con_h,con_w,selectedOption, leftsidebar1,leftsidebar1Cls, leftsidebar2,leftsidebar2Cls, leftsidebar3,leftsidebar3Cls, btn_display,reportS,reportT,checkedS,checkedT,loadDis,bodyDis,trips,AllDevices,tripBack,leftbarConDis,leftbarConW} =this.state;
         
         console.log(AllDevices);
 
@@ -211,8 +234,8 @@ class Leftbar extends React.Component{
         console.log(Ts);
         
         return(
-                <div className='leftbar-container'>
-                    <div className='leftbar-con' style={{height:con_h,width:con_w}}>
+                <div className='leftbar-container'style={{width:leftbarConW}}>
+                    <div className='leftbar-con' style={{height:con_h,width:con_w,display:leftbarConDis}}>
                     
                         {/* **********head********* */}
                         <div className='sec-page-side-L-head' style={{display:btn_display}} >

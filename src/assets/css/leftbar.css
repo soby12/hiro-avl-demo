@@ -11,14 +11,14 @@
 .leftbar-con{
     float: left;
     background: #121416CF;
-    display: block;
+    /* display: block; */
 }
 .leftbar-btn{
     float: left;
     background: #121416;
     width: 20px;
     height: 50px;
-    margin-top: 90%;
+    margin-top: 390px;
 }
 
 .MuiTypography-body1{

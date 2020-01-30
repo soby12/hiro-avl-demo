@@ -5,7 +5,22 @@
     float: left;
 }
 /* ***************/
-
+.modal-con{
+    width:100%;
+    height:100%;
+    background:#adad9166;
+    position:absolute;
+    z-index: 2001;
+}
+.modal{
+    background:white;
+    border-radius:2%;
+    width:1000px;
+    height:550px;
+    z-index: 200;
+    position:reletive;
+    margin:128px auto
+}
 .nav-first{
     width: 100%;
     height: 63px;
